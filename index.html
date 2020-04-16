@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>波波药物研发信息导航</title>
+		
+
+<!-- 引入:基础的 -->
+	
+
+  	<script>document.all.ad_area.style.display = 'none' </script>
+  	
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  	
+
+	
+   	
+	
+		<!-- 图标 -->
+        <link href="http://bobqu.dothome.co.kr/favicon.ico" rel="icon"  type="image/x-icon" />
+		<!-- 引入后 头部样式混乱
+		<link href="https://rs.pharmacodia.com/yaodu/resources/plugin/bootstrap/bootstrap-v3.3.2/css/bootstrap.custom.css" rel="stylesheet">
+		-->
+		<!-- 公共的头部尾部等 --> 
+		<link rel="stylesheet" href="https://rs.pharmacodia.com/yaodu/resources/css/common.css">
+		<link rel="stylesheet" href="https://rs.pharmacodia.com/yaodu/resources/css/header.css?v=1.1.9.6">
+		<link rel="stylesheet" href="https://rs.pharmacodia.com/yaodu/resources/css/foot.css">
+		<!-- 药物列表相关的的样式,需要单独引入 -->
+		<link rel="stylesheet" href="https://rs.pharmacodia.com/yaodu/resources/css/common_durg.css">
+		
+		<!-- smallstyles.css 引入后变成1000宽度了 -->	
+		<link  href="https://rs.pharmacodia.com/yaodu/resources/css/smallstyles.css"  rel="stylesheet" id="smallFoot">
+		<!-- 首页控制,包括药物搜索等 -->
+		
+		
+		
+		<style type="text/css"> 
+		/**搜索浮动重写样式**/ 
+		.navDrugFlaot {background: #fff none repeat scroll 0 0; display: none;position: absolute;z-index:5;}
+		</style> 
+		
+			
+		<!-- cps工具类 -->
+		<!-- 分页 -->
+		<link  href="https://rs.pharmacodia.com/yaodu/resources/css/drug_search/cps_pager_plugin.css?v=3.2.320180315" rel="stylesheet" type="text/css" />  	
+		<!-- 分面样式 -->
+		<link  href="https://rs.pharmacodia.com/yaodu/resources/css/drug_search/cps_search_nav_facet_plugin.css?v=3.2.320180315" rel="stylesheet" type="text/css" />
+		<!-- 字体颜色样式 被common.css覆盖了 -->
+		<style>
+			body{
+				color:#333;
+			}
+		</style>
+	
+
+		
+		
+
+		<link rel="stylesheet" type="text/css" href="https://rs.pharmacodia.com/yaodu/resources/css/newWebsite/nav_index.css"/>
+		<!-- <script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script> -->
+		<link href="https://rs.pharmacodia.com/yaodu/resources/plugin/bootstrap/bootstrap-v3.3.2/css/bootstrap.min.css“  rel="stylesheet" />
+		<link href="https://rs.pharmacodia.com/yaodu/resources/css/model-style.css" rel="stylesheet" />
+		
+		 <link rel="stylesheet" type="text/css" href="https://rs.pharmacodia.com/yaodu/resources/css/fx/common.css">
+		 
+		 <link rel="stylesheet" type="text/css" href="https://rs.pharmacodia.com/yaodu/resources/css/newinformation/css/inftop.css"/>
+  <link rel="stylesheet" type="text/css" href="https://rs.pharmacodia.com/yaodu/resources/css/newinformation/css/argument.css">
+  <!--fwjklgsdjgdfklgjfdjfdf-->
+  <link rel="stylesheet" type="text/css" href="https://rs.pharmacodia.com/yaodu/resources/css/fx/common.css">
+	<link rel="stylesheet" type="text/css" href="https://rs.pharmacodia.com/yaodu/resources/css/fx/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="https://rs.pharmacodia.com/yaodu/resources/css/fx/roadfont-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://rs.pharmacodia.com/yaodu/resources/css/fx/roadiconfont.css"/>
+	<link rel="stylesheet" type="text/css" href="https://rs.pharmacodia.com/yaodu/resources/css/fx/infoys_newpc.css"/>
+	</head>
+	<body>
+	
+
+
+
+
+ <style type="text/css">
+ .current {
+    background: #fff none repeat scroll 0 0 !important;
+}
+a {
+    color: #555;
+    text-decoration: none;
+    cursor: pointer;
+}
+.container {
+	width: 1170px;
+}
+/*新增订阅*/
+.subscribe_head{
+    float: left;
+    cursor: pointer;
+    height:19px;
+    color: #FD7115;
+    /* width: 34%; */
+    /* margin-right: 26px; */
+    /* right: 250px; */
+    /* border: 1px solid #FD7115; */
+	margin-top:5px;
+	margin-right:12px;
+	}
+.subscribe_head	img{
+	float: left;
+
+}
+.dingyue_ico_head{
+	display:block;
+}
+.Article_number{
+    color: white;
+    display: inline-block;
+    font-size: 10px;
+    margin-top: 3px;
+    margin-left: 2px;
+    height: 11px;
+    line-height: 10px;
+    border-radius: 4px;
+    padding: 0 2px;
+    border: 1px solid #fd7215;
+    background-color: #fd7215;
+}
+.head_div{
+	    /* position: absolute; */
+    /* width: 57px; */
+    border: 1px solid #FD7115;
+    float: left;
+	padding:0 4px;
+    top: 0px;
+    left: 18px;
+    height: 20px;
+}
+
+.go_notics{
+	margin-right:22px;
+	display: none;
+	line-height:0px !important;
+	padding-top:8px;
+}
+.go_notics img{
+	vertical-align: text-bottom;
+}
+.go_notics{
+	position: relative;
+}
+#notics_num{
+    background-color: #FD7115;
+    position: absolute;
+	padding:0 5px;
+    /* width: 17px; */
+    height: 14px;
+    line-height: 14px;
+    left: 12px;
+    border-radius: 3px;
+    top: 4px;
+    text-align: center;
+    font-size:10px;
+	-webkit-transform:scale(0.8);
+    color: white;
+}
+</style>
+<!--顶部 nav-->
+	</script>
+		<div id="nav_index">
+			<div class="nav_index">
+				<div class="nav_main">
+					<div class="navm_left left">
+						<div class="navm_lt">
+							<table class="medical_forum 
+" border="0" cellspacing="0" cellpadding="0">
+								<tr><th colspan="3"><span class="title_text">常用网址</span></th></tr>
+								<tr class="tb_main">
+									<td><a target="_blank" href ="https://meetinglibrary.asco.org/">ASCO</a></td>
+									<td><a target="_blank" href ="https://cslide.ctimeetingtech.com/library/esmo/browse/search">ESMO</a></td>
+									<td><a target="_blank" href ="https://www.ncbi.nlm.nih.gov/pubmed/">Pubmed</a></td>
+								</tr>
+								<tr>
+									<td><a target="_blank" href ="https://xn--48s27yhjdcr7b.top/extdomains/scholar.google.com">谷歌学术</a></td>
+									<td><a target="_blank" href ="https://www.nccn.org/professionals/physician_gls/">NCCN</a></td>
+									<td><a target="_blank" href ="https://www.accessdata.fda.gov/scripts/cder/daf/">Drugs@FDA</a></td>
+								</tr>
+								<tr>
+									<td><a target="_blank" href ="https://jcr.clarivate.com/">JCR</a></td>
+									<td><a target="_blank" href ="https://www.medsci.cn/sci/">梅斯JCR</a></td>
+									<td><a target="_blank" href ="https://985.so/jRZL">WOS</a></td>
+								</tr>
+								<tr>
+									<td><a target="_blank" href ="https://www.iaslc.org/">WCLC</a></td>
+									<td><a target="_blank" href ="https://www.sabcs.org/">SABCS</a></td>
+									<td><a target="_blank" href ="https://www.aacr.org/MEETINGS/PAGES/DEFAULT.ASPX">AACR</a></td>
+								</tr>
+								<tr>
+									<td><a target="_blank" href ="http://www.csco.org.cn/">CSCO</a></td>
+									<td><a target="_blank" href ="https://www.thyroid.org/professionals/meetings/">ATA</a></td>
+									<td><a target="_blank" href ="http://app1.sfda.gov.cn/datasearchcnda/face3/dir.html">NMPA</a></td>
+								</tr>
+								<tr>
+									<td><a target="_blank" href ="https://xn--48s27yhjdcr7b.top/">Google</a></td>
+									<td><a target="_blank" href ="https://bobodaohang.top/sci/">文献下载</a></td>
+									<td><a target="_blank" href ="https://985.so/jQf9">迈特思创</a></td>
+								</tr>
+								<tr>
+								    <td colspan="3"><a target="_blank" href ="http://www.lingyuint.com/fenlei/yixuehuiyi1.html">2020全球肿瘤会议预告</a></td>
+								</tr>
+							</table>
+							<table class="online_tools" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<th colspan="3">
+										<span class="title_text">在线查询</span>
+									</th>
+								</tr>
+								<tr class="tb_main">
+									<td style="width:80px"><a target="_blank" href ="https://ilab.acdlabs.com/iLab2/index.php">ACD/Hab</a></td>
+									<td style="padding-left:10px;"><a target="_blank" href ="http://bioinfo.au.tsinghua.edu.cn/subMito/ ">蛋白序列分析</a></td>
+									<td style="padding-left:0px;"><a target="_blank" href ="http://www.biokemi.su.se/~server/DAS/">DAS跨膜预测</a></td>
+								</tr>
+								<tr>
+									<td colspan="3"><a target="_blank" href ="http://www.bio-soft.net/sms/index.html">序列处理在线工具包(SMS）</a></td>
+								</tr>
+								<tr>
+									<td colspan="3"><a target="_blank" href ="http://www.gpcr.org/7tm/">GCRDB  G-蛋白结合受体数据库</a></td>
+								</tr>
+								<tr>
+									<td colspan="3"><a target="_blank" href ="http://www.micro.csdb.cn/">中国微生物与病毒主题数据库</a></td>
+								</tr>
+								<tr>
+									<td colspan="3"><a target="_blank" href ="http://med.6mg.bid/index/instruction">中国上市药品说明书官方查询(不全)</a></td>
+								</tr>
+								<tr>
+									<td colspan="3"><a target="_blank" href ="http://www.nmpa.gov.cn/WS04/CL2424/">国家药品监督管理局政务服务门户</a></td>
+								</tr>
+							</table>
+							<table class="new_information" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<th colspan="3">
+										<span class="title_text">药靶查询</span>
+									</th>
+								</tr>
+								<tr class="tb_main">
+									<td style="width:125px"><a target="_blank" href ="https://adisinsight.springer.com/">Adi Insight</a></td>
+									<td style="width:125px"><a target="_blank" href ="http://db.pharmcube.com/database/index">医药魔方</a></td>
+									<td><a target="_blank" href ="https://db.yaozh.com/">药智网</a></td>
+								</tr>
+								<tr>
+									<td><a target="_blank" href ="https://www.guidetopharmacology.org">GTP</a></td>
+									<td style="width:135px"><a target="_blank" href ="http://insilico.charite.de/supertarget/index.php?site=home">Super Target</a></td>
+									<td><a target="_blank" href ="https://www.pharmgkb.org/">PharmgKB</a></td>
+								</tr>
+								<tr>
+									<td><a target="_blank" href ="https://www.tocris.com/cn/pharmacology">Tocris</a></td>
+									<td><a target="_blank" href ="https://www.bindingdb.org/bind/index.jsp">BingingDB</a></td>
+									<td><a target="_blank" href ="https://www.drugbank.ca/">DrugBank</a></td>
+								</tr>
+								<tr>
+									<td><a target="_blank" href ="https://www.ebi.ac.uk/chembl/">ChEMBL</a></td>
+									<td><a target="_blank" href ="https://svpn.cpu.edu.cn/,DanaInfo=.adbvdDunhzvkn0qwpPt65,SSL+">药渡数据</a></td>
+								</tr>
+							</table>
+						</div>
+						
+					</div>
+					<div class="navm_right left">
+						<div class="navm_rt">
+							<table class="recommended_web" border="0" cellspacing="0" cellpadding="0">
+								<thead>
+									<th colspan="6">
+										<span class="title_text">网址推荐</span>
+									</th>
+								</thead>
+								<tbody>
+									<tr class="navm_rtb">
+										<td><a target="_blank" href ="https://www.sciencedirect.com/">爱思维尔</a></td>
+										<td><a target="_blank" href ="https://link.springer.com/">Springer</a></td>
+										<td><a target="_blank" href ="http://www.ncbi.nlm.nih.gov/pubmed">Pubmed</a></td>
+										<td><a target="_blank" href ="http://pubs.acs.org/toc/jacsat/137/34">JACS</a></td>
+										<td><a target="_blank" href ="http://onlinelibrary.wiley.com">Wiley Library</a></td>
+										<td><a target="_blank" href ="http://xueshu.baidu.com/">百度学术</a></td>
+									</tr>
+									<tr>
+										<td><a target="_blank" href ="http://cpquery.sipo.gov.cn/">中国专利</a></td>
+										<td><a target="_blank" href ="http://www.epo.org/">欧洲专利</a></td>
+										<td><a target="_blank" href ="http://patft.uspto.gov/">美国专利</a></td>
+										<td><a target="_blank" href ="https://www.j-platpat.inpit.go.jp/web/all/top/BTmTopPage">日本专利</a></td>
+										<td><a target="_blank" href ="http://www.soopat.com/">SooPAT</a></td>
+										<td><a target="_blank" href ="http://www.freepatentsonline.com/">FPO免费专利</a></td>
+									</tr>
+									<tr>
+										<td><a target="_blank" href ="http://db.yaozh.com/">药智数据</a></td>
+										<td><a target="_blank" href ="http://db.dxy.cn/v5/home">Insight</a></td>
+										<td><a target="_blank" href ="http://www.xanda.cn/">咸达数据</a></td>
+										<td><a target="_blank" href ="http://www.pharmcube.com/">医药魔方</a></td>
+										<td><a target="_blank" href ="http://www.drugfuture.com/Index.html">Drugfuture</a></td>
+										<td><a target="_blank" href ="https://pharmacy.org/">蒲标网</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="navm_rb">
+								<h3><span class="title_text">研发相关</span></h3>
+							<div>
+								<table border="1" cellspacing="0" cellpadding="0">
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="2">文献查询</th>
+											<td><a target="_blank" href ="https://www.scopus.com/">Scopus</a></td>
+											<td><a target="_blank" href ="https://xn--48s27yhjdcr7b.top/extdomains/scholar.google.com">Google Scholar</a></td>
+											<td><a target="_blank" href ="http://www.ncbi.nlm.nih.gov/pubmed">Pubmed</a></td>
+											<td><a target="_blank" href ="http://onlinelibrary.wiley.com">Wiley Library</a></td>
+											<td><a target="_blank" href ="http://pubs.acs.org/">ACS</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://pubs.acs.org/toc/jacsat/137/34">JACS</a></td>
+											<td><a target="_blank" href ="http://xueshu.baidu.com/">百度学术</a></td>
+											<td><a target="_blank" href ="http://www.wanfangdata.com.cn/">万方数据</a></td>
+											<td><a target="_blank" href ="http://www.cqvip.com/">维普网</a></td>
+											<td><a target="_blank" href ="http://www.cnki.net/">中国知网</a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="2">专利查询</th>
+											<td><a target="_blank" href ="http://cpquery.sipo.gov.cn/">中国专利</a></td>
+											<td><a target="_blank" href ="http://www.epo.org/">欧洲专利</a></td>
+											<td><a target="_blank" href ="http://patft.uspto.gov/">美国专利</a></td>
+											<td><a target="_blank" href ="https://www.j-platpat.inpit.go.jp/web/all/top/BTmTopPage">日本专利</a></td>
+											<td><a target="_blank" href ="http://www.jpo.go.jp/indexj.htm">日本特许厅</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://patinfo.nic.in/">印度专利</a></td>
+											<td><a target="_blank" href ="http://www.innojoy.com/search/index.html">大为</a></td>
+											<td><a target="_blank" href ="http://www.incopat.com/">合享</a></td>
+											<td><a target="_blank" href ="http://www.soopat.com/">SooPAT</a></td>
+											<td><a target="_blank" href ="http://www.freepatentsonline.com/">FPO免费专利</a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="2">数据库</th>
+											<td><a target="_blank" href ="http://www.pharmacodia.com/">药渡数据</a></td>
+											<td><a target="_blank" href ="http://db.yaozh.com/">药智数据</a></td>
+											<td><a target="_blank" href ="http://db.dxy.cn/v5/info/index/t/1/contr/index/act/index/query/">Insight</a></td>
+											<td><a target="_blank" href ="http://www.xanda.cn/">咸达数据</a></td>
+											<td><a target="_blank" href ="http://www.yiyaomofang.com/index">医药魔方</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.drugfuture.com/Index.html">Drugfuture</a></td>
+											<td><a target="_blank" href ="http://www.drugfuture.com/Index.html">药物在线</a></td>
+											<td><a target="_blank" href ="http://www.bz-search.com/">药品标准在线</a></td>
+											<td><a target="_blank" href ="http://lib.hebust.edu.cn/ywyfzsk/zsk/home.htm">药物研发知识库</a></td>
+											<td><a target="_blank" href ="https://pharmacy.org/">蒲标网</a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="4">各国官网</th>
+											<td><a target="_blank" href ="http://www.sfda.gov.cn/WS01/CL0001/">CFDA批准数据</a></td>
+											<td><a target="_blank" href ="http://www.cde.org.cn/">CDE药品收审</a></td>
+											<td><a target="_blank" href ="http://www.cde.org.cn/drugInfo.do?method=init&amp;frameStr=3">CDE溶出数据库</a></td>
+											<td><a target="_blank" href ="http://www.cde.org.cn/drugInfo.do?method=init&amp;frameStr=1">CDE辅料数据库</a></td>
+											<td><a target="_blank" href ="http://www.sfda.gov.cn/WS01/CL0135/">CFDA行政许可</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.accessdata.fda.gov/scripts/cder/drugsatfda/index.cfm">Drugs@FDA</a></td>
+											<td><a target="_blank" href ="http://www.accessdata.fda.gov/scripts/cder/ob/default.cfm">FDA橙皮书</a></td>
+											<td><a target="_blank" href ="http://www.accessdata.fda.gov/scripts/cder/dissolution/index.cfm">FDA溶出数据库</a></td>
+											<td><a target="_blank" href ="http://www.accessdata.fda.gov/scripts/cder/iig/index.cfm">FDA非活性成分</a></td>
+											<td><a target="_blank" href ="http://labels.fda.gov/">FDA在线说明书</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.pmda.go.jp/PmdaSearch/iyakuSearch/">PMDA药品情报</a></td>
+											<td><a target="_blank" href ="http://www.jp-orangebook.gr.jp/">日本橙皮书</a></td>
+											<td><a target="_blank" href ="http://www.fpmaj-saihyoka.com/">再评价资料集</a></td>
+											<td><a target="_blank" href ="http://www.shinsahoukokusho.jp/dar_us/dar/search/usDarSearch.jsp">新药批准报告书</a></td>
+											<td><a target="_blank" href ="http://japic.jp/">JAPIC</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.ema.europa.eu/ema/index.jsp?curl=pages/document_library/landing/document_library_search.jsp&amp;mid=">EMA上市药品</a></td>
+											<td><a target="_blank" href ="http://www.medicines.org.uk/emc/">EMC</a></td>
+											<td><a target="_blank" href ="http://esubmission.ema.europa.eu/">eSubmission</a></td>
+											<td><a target="_blank" href ="http://www.eudrapharm.eu/eudrapharm/selectLanguage.do?NOCOOKIE=NOCOOKIE&amp;NEW_SESSION=true">欧洲药品信息</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen">各国药典</th>
+											<td><a target="_blank" href ="http://www.chp.org.cn/index.html;jsessionid=Bz1qz_ch2fgA3JC2jzjqablWksnbVyLDI5FmWrjGS6J97PSEb_KJ!-1569185911">中国药典委员会</a></td>
+											<td><a target="_blank" href ="http://www.usp.org/">美国药典委员会</a></td>
+											<td><a target="_blank" href ="http://pharmeuropa.edqm.eu/home/">欧洲药典论坛</a></td>
+											<td><a target="_blank" href ="https://www.pharmacopoeia.com/">英国药典</a></td>
+											<td><a target="_blank" href ="http://www.newdruginfo.com/index.asp">药典在线</a></td>
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="2">合成化工</th>
+											<td><a target="_blank" href ="http://www.chemblink.com/indexC.htm">chemblink</a></td>
+											<td><a target="_blank" href ="http://www.lookchem.com/">LookChem</a></td>
+											<td><a target="_blank" href ="http://cheman.chemnet.com/">化工助手</a></td>
+											<td><a target="_blank" href ="http://www.cas.org/">CAS</a></td>
+											<td><a target="_blank" href ="http://www.chemicalbook.com/ProductIndex.aspx">ChemicalBook</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://pubchem.ncbi.nlm.nih.gov/">pubchem</a></td>
+											<td><a target="_blank" href ="http://cp.toocle.com/">中国医药化工</a></td>
+											<td><a target="_blank" href ="http://pubs.acs.org/">ACSPublications</a></td>
+											<td><a target="_blank" href ="http://www.basechem.org/">物竞化学品</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="2">分析检测</th>
+											<td><a target="_blank" href ="http://www.who.int/medicines/publications/druginformation/en/">色谱世界</a></td>
+											<td><a target="_blank" href ="http://news.sepu.net/default.html">中国色谱网</a></td>
+											<td><a target="_blank" href ="http://www.instrument.com.cn/">仪器信息网</a></td>
+											<td><a target="_blank" href ="http://www.crmrm.com/default.htm">标准物质信息网</a></td>
+											<td><a target="_blank" href ="http://www.mcgbw.com/">国家标准物质</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.antpedia.com/">分析测试百科网</a></td>
+											<td><a target="_blank" href ="http://chem.xmu.edu.cn/teach/chemistry-net-teaching/yifen/contents/contents.html">仪器分析课程</a></td>
+											<td><a target="_blank" href ="http://www.gbwol.com/">中国标准物质</a></td>
+											<td><a target="_blank" href ="http://www.mcgbw.com/">国家标准物质</a></td>
+											<td><a target="_blank" href ="http://www.gbw114.org/default.asp">标准样品信息</a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="2">药理毒理</th>
+											<td><a target="_blank" href ="http://www.chinadrugtrials.org.cn/">toxnet</a></td>
+											<td><a target="_blank" href ="http://www.fda.gov/AboutFDA/CentersOffices/OC/OfficeofScientificandMedicalPrograms/NCTR/default.htm">美国毒理学中心</a></td>
+											<td><a target="_blank" href ="https://www.clinicaltrialsregister.eu/">欧盟（EU-CTR）</a></td>
+											<td><a target="_blank" href ="http://www.jmacct.med.or.jp/">日本（JMACCT）</a></td>
+											<td><a target="_blank" href ="http://www.who.int/ictrp/en/">WHO(ICIRP)</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.chinadrugtrials.org.cn/">中国临床数据库</a></td>
+											<td><a target="_blank" href ="https://clinicaltrials.gov/ct2/home">USClinicalstrials</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="2">仪器厂商</th>
+											<td><a target="_blank" href ="http://cn.agilent.com/home">安捷伦</a></td>
+											<td><a target="_blank" href ="http://www.bio-rad.com/zh-cn/corporate">铂金埃尔默</a></td>
+											<td><a target="_blank" href ="http://www.bdbiosciences.com/">BD</a></td>
+											<td><a target="_blank" href ="http://www.bio-rad.com/zh-cn/corporate">Bio-Rad</a></td>
+											<td><a target="_blank" href ="https://www.thermofisher.com/cn/zh/home.html?CID=cn-lsc-sem-keywords-360-151104-01033">ThermoFisher</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.shimadzu.com.cn/">岛津</a></td>
+											<td><a target="_blank" href ="https://www.moleculardevices.com/">MDC</a></td>
+											<td><a target="_blank" href ="http://www.miltenyibiotec.com.cn/zh-cn/">美天旎</a></td>
+											<td><a target="_blank" href ="http://www.gelifesciences.com.cn/CNLS/indexAction.action">GE Healthcare</a></td>
+											<td><a target="_blank" href ="https://www.sartorius.com.cn/">赛多利斯</a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="2">试剂耗材</th>
+											<td><a target="_blank" href ="http://www.brand.de/de/laborgeraete-liquid-handling-volumenmessung-life-science/">Brand</a></td>
+											<td><a target="_blank" href ="https://www.eppendorf.com/CN-zh/">Eppendorf</a></td>
+											<td><a target="_blank" href ="http://www.biolegend.com/">BioLegend</a></td>
+											<td><a target="_blank" href ="http://www.sigmaaldrich.com/">Sigma</a></td>
+											<td><a target="_blank" href ="https://www.lifetechnology.com/">Lifetechnology</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.ebioscience.com/">eBioscience</a></td>
+											<td><a target="_blank" href ="http://www.sangon.com/">生工</a></td>
+											<td><a target="_blank" href ="http://cn.sinobiological.com/">义翘神州</a></td>
+											<td><a target="_blank" href ="http://www.genecopoeia.com/">GeneCopedia</a></td>
+											<td><a target="_blank" href ="http://www.liankebio.com/">联科生物</a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="2">API/杂质/单体</th>
+											<td><a target="_blank" href ="http://www.northland-med.com/">诺思兰德医药</a></td>
+											<td><a target="_blank" href ="http://www.molcan.com/product_categories">MOLCAN</a></td>
+											<td><a target="_blank" href ="http://www.tlcstandards.com/Home.aspx">TLC</a></td>
+											<td><a target="_blank" href ="http://www.usp.org/">USP</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.biocompounds.com/">Biocompunds</a></td>
+											<td><a target="_blank" href ="https://synkinase.com/">Synkinase</a></td>
+											<td><a target="_blank" href ="http://www.bjdyxd.com/">北京东信亚德</a></td>
+											<td><a target="_blank" href ="http://www.xuandechem.com/">济南德轩化工</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="9">临床前CRO</th>
+											<td><a target="_blank" href ="http://www.caerulumpharma.com">喀露蓝科技</a></td>
+											<td><a target="_blank" href ="http://www.alputon.com">奥浦顿医药</a></td>
+											<td><a target="_blank" href ="http://www.bjcomparison.com">康派森医药</a></td>
+											<td><a target="_blank" href ="http://www.lavianacorp.com.cn/">乐威克医生</a></td>
+											<td><a target="_blank" href ="http://www.pharmsynthe.com">世康合成</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.pharmasea.com.cn">科贝源生物</a></td>
+											<td><a target="_blank" href ="http://www.asymchem.com">凯莱英医药</a></td>
+											<td><a target="_blank" href ="http://www.scochem.com">思阔化学</a></td>
+											<td><a target="_blank" href ="http://www.sphinxscientificlab.com">斯芬克斯</a></td>
+											<td><a target="_blank" href ="http://synmedchem.com/">信实化学</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.ice-biosci.com">爱思益普生物</a></td>
+											<td><a target="_blank" href ="http://www.bbctg.com.cn">百奥赛图基因</a></td>
+											<td><a target="_blank" href ="http://www.microconstants.com.cn">迈康斯德医药</a></td>
+											<td><a target="_blank" href ="http://www.hdbiosciences.com/chdiseasemodels.html">辉源生物</a></td>
+											<td><a target="_blank" href ="http://www.pharmalegacy.com">澎立生物</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.spfanimals.com">斯贝福试验动物</a></td>
+											<td><a target="_blank" href ="http://www.3dbiooptima.com">苏州圣苏新药</a></td>
+											<td><a target="_blank" href ="http://www.hrbiopharm.com">宏韧生物医药</a></td>
+											<td><a target="_blank" href ="http://www.vivabiotech.com">维亚生物</a></td>
+											<td><a target="_blank" href ="http://www.crownbio.com">中美冠科</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.cosci-med.com/">科信必成</a></td>
+											<td><a target="_blank" href ="http://www.crystalpharmatech.com/">晶云药物</a></td>
+											<td><a target="_blank" href ="http://www.overseaspharm.com/">越洋医药</a></td>
+											<td><a target="_blank" href ="http://www.whkfxy.com/">科福新药</a></td>
+											<td><a target="_blank" href ="http://www.casipharma.com.cn/">英创远达</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.glphy.com">安徽合源</a></td>
+											<td><a target="_blank" href ="http://www.ugcro.com">协和建昊</a></td>
+											<td><a target="_blank" href ="http://www.joinn-lab.com/">昭衍新药</a></td>
+											<td><a target="_blank" href ="http://mx.glpcd.com">华西海圻</a></td>
+											<td><a target="_blank" href ="http://www.hainmc.edu.cn/webapps/anping/">海南海医</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.hnse.org">湖南实验动物中心</a></td>
+											<td><a target="_blank" href ="http://www.tprglp.com">鼎泰药物研究</a></td>
+											<td><a target="_blank" href ="http://www.pharmaron.net/">康龙化成</a></td>
+											<td><a target="_blank" href ="http://www.covance.com/">科文斯</a></td>
+											<td><a target="_blank" href ="http://www.medicilon.com/">美迪西</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.qdifdc.org.cn/index.html">青岛药品检验所</a></td>
+											<td><a target="_blank" href ="http://www.sdxinbo.com">山东欣博药物</a></td>
+											<td><a target="_blank" href ="http://www.suzhouresearch.com">苏州西山中科</a></td>
+											<td><a target="_blank" href ="http://www.shangpharma.com/">睿智化学</a></td>
+											<td><a target="_blank" href ="http://www.bioduro.com/">保诺科技</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.wuxiapptec.com.cn/">药明康德</a></td>
+											<td><a target="_blank" href ="http://www.frontagelab.com.cn">方达医疗</a></td>
+											<td><a target="_blank" href ="http://www.sjbkbj.com">世纪博康</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="3">临床CRO</th>
+											<td><a target="_blank" href ="http://www.iconplc.com/">爱恩康</a></td>
+											<td><a target="_blank" href ="http://www.bjzwbc.com/">中卫必成</a></td>
+											<td><a target="_blank" href ="http://www.ctsmed.com/">赛德盛</a></td>
+											<td><a target="_blank" href ="http://www.cro.org.cn/">杭州科人</a></td>
+											<td><a target="_blank" href ="http://www.xtyw.com.cn/">西安新通</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.gzboji.com/">广州博济</a></td>
+											<td><a target="_blank" href ="http://www.ahwbyy.cn/">安徽万邦</a></td>
+											<td><a target="_blank" href ="http://www.shcares.com.cn/">上海凯锐斯</a></td>
+											<td><a target="_blank" href ="http://www.bionovo.com.cn/">北京博诺威</a></td>
+											<td><a target="_blank" href ="http://www.gcp-clinplus.com/">普瑞盛</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.proswell.com.cn/">北京春天</a></td>
+											<td><a target="_blank" href ="http://www.qhcro.com/show.asp?uver=cn">北京岐黄</a></td>
+											<td><a target="_blank" href ="http://www.yhy-sz.com/">深圳盈和源</a></td>
+											<td><a target="_blank" href ="http://www.carewayer.com/">上海开为</a></td>
+											<td><a target="_blank" href ="http://www.ctsmed.com/">北京赛德盛</a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bggreen" rowspan="4">新药研发企业</th>
+											<td><a target="_blank" href ="http://www.beigene.com">百济神州</a></td>
+											<td><a target="_blank" href ="http://www.hecpharma.com">东阳光药</a></td>
+											<td><a target="_blank" href ="http://www.biotechplc.com/">百泰生物</a></td>
+											<td><a target="_blank" href ="http://www.fd-zj.com">复旦张江</a></td>
+											<td><a target="_blank" href ="http://www.hitgen.com/?page_id=4758">先导药物</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.zailaboratory.com/">再鼎医药</a></td>
+											<td><a target="_blank" href ="http://www.3dmedcare.com/">思路迪医药</a></td>
+											<td><a target="_blank" href ="http://www.chipscreen.com">微芯生物</a></td>
+											<td><a target="_blank" href ="http://www.ascentagepharma.com/">亚盛医药</a></td>
+											<td><a target="_blank" href ="http://ascletis.com.cn">歌礼生物</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.genorbio.com/">嘉和生物</a></td>
+											<td><a target="_blank" href ="http://www.generonbiomed.com/">健能隆</a></td>
+											<td><a target="_blank" href ="http://www.t-mab.com/">泰康生物</a></td>
+											<td><a target="_blank" href ="http://www.sinocelltech.com/">神州细胞</a></td>
+											<td><a target="_blank" href ="http://www.3sbio.com">三生制药</a></td>
+	
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.innoventbio.com/">信达生物</a></td>
+											<td><a target="_blank" href ="http://www.mabspacebio.com">迈博斯生物</a></td>
+											<td><a target="_blank" href ="http://www.northland-bio.com/">诺思兰德</a></td>
+											<td><a target="_blank" href ="http://www.ribolia.com">瑞博</a></td>
+											<td><a target="_blank" href ="https://www.hrs.com.cn/index.html">恒瑞医药</a></td>
+	
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<h3><span class="title_text">生产相关</span></h3>
+							<div>
+								<table border="1" cellspacing="0" cellpadding="0">
+									<tbody>
+										<tr>
+											<th class="bgyellow" rowspan="2">中间体</th>
+											<td><a target="_blank" href ="http://www.catalent.com/">catalent</a></td>
+											<td><a target="_blank" href ="http://cn.porton.cn/">博腾股份</a></td>
+											<td><a target="_blank" href ="http://www.abachem.com/">雅本化学</a></td>
+											<td><a target="_blank" href ="http://www.jjjkj.com.cn/">九九久</a></td>
+											<td><a target="_blank" href ="http://www.lianhetech.com/">联化科技</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.lonza.com.cn/">龙沙</a></td>
+											<td><a target="_blank" href ="http://www.patheon.com/en-us">培森</a></td>
+											<td><a target="_blank" href ="http://www.jubl.com/">吉友联</a></td>
+											<td><a target="_blank" href ="http://www.tianmachem.com/">天马精化</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bgyellow" rowspan="2">辅料</th>
+											<td><a target="_blank" href ="http://pharm.vogel.com.cn/s_index.html">弗格工业在线</a></td>
+											<td><a target="_blank" href ="http://www.phexcom.cn/">国际药物制剂网</a></td>
+											<td><a target="_blank" href ="http://www.pharmon.com.cn/">制药在线</a></td>
+											<td><a target="_blank" href ="http://www.colorcon.com.cn/home">卡乐康</a></td>
+											<td><a target="_blank" href ="http://www.fenglichem.com/">北京凤礼精求</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://yiyao.gtobal.com/">际通宝医药网</a></td>
+											<td><a target="_blank" href ="http://www.ashlandchina.com/">亚什兰</a></td>
+											<td><a target="_blank" href ="http://www.shanhe01.com/">安徽山河</a></td>
+											<td><a target="_blank" href ="http://www.hnerkang.com/">湖南尔康</a></td>
+											<td><a target="_blank" href ="http://www.dalian-diligence.com/">大连业建</a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bgyellow" rowspan="2">制剂设备</th>
+											<td><a target="_blank" href ="http://www.xiaolun.net/">小伦</a></td>
+											<td><a target="_blank" href ="http://xinyite.net/">深圳信宜特</a></td>
+											<td><a target="_blank" href ="http://www.enger.cn/">重庆英格</a></td>
+											<td><a target="_blank" href ="http://www.gylongli.com/">国药龙力</a></td>
+											<td><a target="_blank" href ="http://www.rieckermann.com/">乐嘉文</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.bjhanlin.com/">翰林精工</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bgyellow" rowspan="2">包装</th>
+											<td><a target="_blank" href ="http://amcor.chinainout.com/">Amcor</a></td>
+											<td><a target="_blank" href ="http://www.cflex.com/">Constantia Flexibles</a></td>
+											<td><a target="_blank" href ="http://www.schott.com/">肖特医药包装</a></td>
+											<td><a target="_blank" href ="http://nfbz.cn.china.cn">南方包装有限公司</a></td>
+											<td><a target="_blank" href ="https://haishunpack.cnal.com/">上海海顺</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://lygzjyyb.cn.china.cn)">连云港中金</a></td>
+											<td><a target="_blank" href ="http://www.jinchaocn.com/">潮州金潮</a></td>
+											<td><a target="_blank" href ="http://hbhqhg.com/">湖北华强化工</a></td>
+											<td><a target="_blank" href ="http://www.ypbzjx.ecgoods.com/">药品包装机械网</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bgyellow">CMO</th>
+											<td><a target="_blank" href ="http://www.sta.wuxiapptec.com/">上海合全药业</a></td>
+											<td><a target="_blank" href ="http://www.autekbio.com/">奥达国际生物技术</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+										</tr>
+									</tbody>
+								</table>	
+							</div>
+							<h3><span class="title_text">投资机构</span></h3>
+							<div>
+								<table border="1" cellspacing="0" cellpadding="0">
+									<tbody>
+										<tr>
+											<th class="bgred" rowspan="2">VC</th>
+											<td><a target="_blank" href ="http://www.3ebiovc.com">本草资本</a></td>
+											<td><a target="_blank" href ="http://www.lillyasiaventures.com">礼来亚洲基金</a></td>
+											<td><a target="_blank" href ="http://www.decheng.com">德诚资本</a></td>
+											<td><a target="_blank" href ="http://www.sangelvc.com
+">仙瞳资本</a></td>
+											<td><a target="_blank" href ="http://www.nlightvc.com">北极光创投</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="">华山资本</a></td>
+											<td><a target="_blank" href ="http://www.morningside.com.cn">晨兴创投</a></td>
+											<td><a target="_blank" href ="http://www.dtcap.com">德同资本</a></td>
+											<td><a target="_blank" href ="http://www.kaiwucapital.com">开物投资</a></td>
+											<td><a target="_blank" href ="http://www.fidelitygrowthpartners.asia">斯道资本</a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bgred" rowspan="2">PE</th>
+											<td><a target="_blank" href ="http://www.sbcvc.com/">软银中国资本</a></td>
+											<td><a target="_blank" href ="http://www.idgvc.com/">IDG资本</a></td>
+											<td><a target="_blank" href ="http://www.honycapital.com/">弘毅投资</a></td>
+											<td><a target="_blank" href ="http://www.legendcapital.com.cn/">君联资本</a></td>
+											<td><a target="_blank" href ="http://www.jdcapital.com">九鼎投资</a></td>
+										</tr>
+										<tr>
+											<td><a target="_blank" href ="http://www.cdhfund.com">鼎晖投资</a></td>
+											<td><a target="_blank" href ="http://www.hillhousecap.com/">高瓴资本</a></td>
+											<td><a target="_blank" href ="https://www.sequoiacap.com/">红杉资本</a></td>
+											<td><a target="_blank" href ="http://www.carlyle.com/zh-hans/front">凯雷投资</a></td>
+											<td><a target="_blank" href ="http://www.tusholdings.com/">启迪控股</a></td>
+	
+										</tr>
+										<tr><td colspan="6" class="nav_blank"></td></tr>
+									</tbody>
+									<tbody>
+										<tr>
+											<th class="bgred">投资银行</th>
+											<td><a target="_blank" href ="http://www.bfcgroup.biz">BFC Group</a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+											<td><a target="_blank" href ="#"></a></td>
+										</tr>
+									</tbody>
+								</table>	
+							</div>
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+	</body>
+</html>
